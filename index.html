@@ -3,795 +3,749 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Деревянная Мастерская</title>
+    <title>Деревянные изделия ручной работы | Мастерская "Древесный Узор"</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --primary-color: #8B4513;
-            --secondary-color: #D2B48C;
-            --light-color: #F5F5DC;
-            --dark-color: #3E2723;
-            --accent-color: #A0522D;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: var(--light-color);
-            color: var(--dark-color);
-            line-height: 1.6;
-        }
-        
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 1rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-        
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo-icon {
-            margin-right: 10px;
-            font-size: 1.8rem;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 1.5rem;
-        }
-        
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        nav ul li a:hover {
-            color: var(--secondary-color);
-        }
-        
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-        }
-        
-        main {
-            margin-top: 70px;
-        }
-        
-        section {
-            padding: 4rem 1rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        section:nth-child(even) {
-            background-color: #f9f5ea;
-        }
-        
-        h1, h2, h3 {
-            margin-bottom: 1.5rem;
-            color: var(--primary-color);
-        }
-        
-        p {
-            margin-bottom: 1rem;
-        }
-        
         .hero {
-            text-align: center;
-            padding: 6rem 1rem;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://cdnjs.cloudflare.com/ajax/libs/simple-icons/3.0.1/simple-icons.svg') center/cover;
-            background-attachment: fixed;
-            color: white;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
         }
         
-        .hero h1 {
-            font-size: 3rem;
-            color: white;
-            margin-bottom: 1rem;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn:hover {
-            background-color: var(--dark-color);
-        }
-        
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .about-text {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .about-image {
-            flex: 1;
-            min-width: 300px;
-            height: 300px;
-            background-color: var(--secondary-color);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        
-        .about-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .service-card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .service-icon {
-            font-size: 2.5rem;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-        }
-        
-        .portfolio {
-            text-align: center;
-        }
-        
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-        
-        .gallery-item {
-            position: relative;
-            height: 250px;
-            overflow: hidden;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-        
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-        
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-        
-        .gallery-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 0.5rem;
-            transform: translateY(100%);
-            transition: transform 0.3s;
-        }
-        
-        .gallery-item:hover .gallery-caption {
+        .product-card:hover .product-overlay {
+            opacity: 1;
             transform: translateY(0);
         }
         
-        .upload-container {
-            margin-top: 2rem;
-            padding: 2rem;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        .product-overlay {
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
         }
         
-        .upload-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
+        .nav-link {
+            position: relative;
         }
         
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        label {
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-        
-        input, textarea {
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .contact-info {
-            background-color: white;
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-        
-        .contact-icon {
-            font-size: 1.5rem;
-            color: var(--accent-color);
-            margin-right: 1rem;
-        }
-        
-        .contact-form {
-            background-color: white;
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 3rem 1rem;
-            text-align: center;
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        
-        .footer-column h3 {
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: var(--secondary-color);
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        
-        .social-link {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background-color: var(--primary-color);
-            border-radius: 50%;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
-        
-        .social-link:hover {
-            background-color: var(--accent-color);
-        }
-        
-        .copyright {
-            margin-top: 2rem;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1001;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.9);
-        }
-        
-        .modal-content {
-            margin: auto;
-            display: block;
-            width: 80%;
-            max-width: 800px;
-            max-height: 80%;
-            object-fit: contain;
-        }
-        
-        .close {
+        .nav-link::after {
+            content: '';
             position: absolute;
-            top: 15px;
-            right: 35px;
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            transition: 0.3s;
-            cursor: pointer;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #8B5A2B;
+            transition: width 0.3s ease;
         }
         
-        .close:hover {
-            color: var(--secondary-color);
+        .nav-link:hover::after {
+            width: 100%;
         }
         
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            nav {
-                width: 100%;
-                margin-top: 1rem;
-            }
-            
-            nav ul {
-                flex-direction: column;
-            }
-            
-            nav ul li {
-                margin: 0.5rem 0;
-            }
-            
-            .hamburger {
-                display: block;
-                position: absolute;
-                top: 1rem;
-                right: 1rem;
-            }
-            
-            nav {
-                display: none;
-            }
-            
-            nav.active {
-                display: block;
-            }
-            
-            .about-content {
-                flex-direction: column;
+        .active::after {
+            width: 100%;
+        }
+        
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        
+        .scroll-fade {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .scroll-fade.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Мобильные стили */
+        @media (max-width: 767px) {
+            .hero {
+                height: 70vh;
+                background-position: 65% center;
             }
             
             .hero h1 {
                 font-size: 2rem;
+                padding: 0 1rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+                padding: 0 1rem;
+            }
+            
+            section {
+                padding: 3rem 1rem;
+            }
+            
+            .product-card {
+                margin-bottom: 1.5rem;
+            }
+            
+            .process-steps {
+                padding: 0 0.5rem;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .contact-section {
+                flex-direction: column;
+            }
+            
+            .contact-info, .contact-form {
+                width: 100%;
+                padding: 0;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .footer-column {
+                width: 100%;
+            }
+            
+            .map-container {
+                height: 300px;
+            }
+            
+            .mobile-hidden {
+                display: none;
+            }
+            
+            .mobile-full-width {
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .hero {
+                height: 80vh;
+            }
+            
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .process-image {
+                margin-bottom: 2rem;
             }
         }
     </style>
 </head>
-<body>
-    <header>
-        <div class="header-container">
-            <div class="logo">
-                <span class="logo-icon">🪚</span>
-                <span>Деревянная Мастерская</span>
+<body class="smooth-scroll font-sans bg-amber-50 text-gray-800">
+    <!-- Header -->
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 sm:px-6 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <i class="fas fa-tree text-2xl sm:text-3xl text-amber-800 mr-2"></i>
+                    <span class="text-xl sm:text-2xl font-bold text-amber-800">Древесный Узор</span>
+                </div>
+                
+                <nav class="hidden md:flex space-x-6 lg:space-x-8">
+                    <a href="#home" class="nav-link active text-gray-800 hover:text-amber-800 transition text-sm lg:text-base">Главная</a>
+                    <a href="#about" class="nav-link text-gray-800 hover:text-amber-800 transition text-sm lg:text-base">О нас</a>
+                    <a href="#products" class="nav-link text-gray-800 hover:text-amber-800 transition text-sm lg:text-base">Продукция</a>
+                    <a href="#process" class="nav-link text-gray-800 hover:text-amber-800 transition text-sm lg:text-base">Процесс</a>
+                    <a href="#contact" class="nav-link text-gray-800 hover:text-amber-800 transition text-sm lg:text-base">Контакты</a>
+                </nav>
+                
+                <button id="mobile-menu-button" class="md:hidden text-gray-800 focus:outline-none">
+                    <i class="fas fa-bars text-xl sm:text-2xl"></i>
+                </button>
             </div>
-            <button class="hamburger">☰</button>
-            <nav id="main-nav">
-                <ul>
-                    <li><a href="#home">Главная</a></li>
-                    <li><a href="#about">О нас</a></li>
-                    <li><a href="#services">Услуги</a></li>
-                    <li><a href="#portfolio">Портфолио</a></li>
-                    <li><a href="#contact">Контакты</a></li>
-                </ul>
-            </nav>
+            
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-3 pb-2">
+                <a href="#home" class="block py-2 px-4 text-gray-800 hover:bg-amber-100 rounded transition">Главная</a>
+                <a href="#about" class="block py-2 px-4 text-gray-800 hover:bg-amber-100 rounded transition">О нас</a>
+                <a href="#products" class="block py-2 px-4 text-gray-800 hover:bg-amber-100 rounded transition">Продукция</a>
+                <a href="#process" class="block py-2 px-4 text-gray-800 hover:bg-amber-100 rounded transition">Процесс</a>
+                <a href="#contact" class="block py-2 px-4 text-gray-800 hover:bg-amber-100 rounded transition">Контакты</a>
+            </div>
         </div>
     </header>
 
-    <main>
-        <section id="home" class="hero">
-            <h1>Мастерская деревянных изделий</h1>
-            <p>Создаем уникальные изделия из дерева ручной работы. Натуральные материалы, качественное исполнение, индивидуальный подход.</p>
-            <a href="#contact" class="btn">Связаться с нами</a>
-        </section>
+    <!-- Hero Section -->
+    <section id="home" class="hero flex items-center justify-center text-center text-white pt-16 sm:pt-20">
+        <div class="container mx-auto px-4 sm:px-6">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 scroll-fade show">Уникальные изделия из дерева</h1>
+            <p class="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 max-w-2xl mx-auto px-2 scroll-fade show">Ручная работа с душой и вниманием к деталям</p>
+            <a href="#products" class="inline-block bg-amber-800 hover:bg-amber-700 text-white font-bold py-2 px-6 sm:py-3 sm:px-8 rounded-full transition duration-300 text-sm sm:text-base scroll-fade show">Наши работы</a>
+        </div>
+    </section>
 
-        <section id="about">
-            <h2>О нас</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Наша мастерская - это небольшое семейное предприятие с богатой историей и традициями деревообработки, которые передаются из поколения в поколение.</p>
-                    <p>Мы используем только экологически чистые материалы и применяем как традиционные, так и современные технологии обработки дерева.</p>
-                    <p>Каждое изделие создается с любовью и вниманием к деталям, что делает его по-настоящему уникальным и неповторимым.</p>
+    <!-- About Section -->
+    <section id="about" class="py-12 sm:py-16 md:py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 sm:mb-10 md:mb-0 md:pr-6 lg:pr-10 scroll-fade">
+                    <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-amber-800">О нашей мастерской</h2>
+                    <p class="text-gray-700 mb-3 sm:mb-4 text-sm sm:text-base">Мы - небольшая семейная мастерская, создающая уникальные деревянные изделия уже более 10 лет. Каждое наше творение несёт в себе частичку души мастера и тепло натурального дерева.</p>
+                    <p class="text-gray-700 mb-3 sm:mb-4 text-sm sm:text-base">Используем только экологически чистые материалы, отдавая предпочтение местным породам древесина. В работе сочетаем традиционные техники с современными технологиями обработки.</p>
+                    <p class="text-gray-700 text-sm sm:text-base">Наша философия - создавать не просто предметы, а вещи, которые будут радовать вас долгие годы, сохраняя природную красоту дерева.</p>
                 </div>
-                <div class="about-image">
-                    <img src="/api/placeholder/500/300" alt="Наша мастерская" />
+                <div class="md:w-1/2 scroll-fade">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Мастер за работой" class="rounded-lg shadow-xl w-full">
+                        <div class="absolute -bottom-3 sm:-bottom-4 -right-3 sm:-right-4 bg-amber-800 text-white p-2 sm:p-3 md:p-4 rounded-lg shadow-lg text-xs sm:text-sm">
+                            <p class="font-bold">10+ лет</p>
+                            <p>опыта работы</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="services">
-            <h2>Наши услуги</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🪑</div>
-                    <h3>Мебель на заказ</h3>
-                    <p>Изготовление мебели по индивидуальным размерам и дизайну: столы, стулья, полки, шкафы и многое другое.</p>
+    <!-- Products Section -->
+    <section id="products" class="py-12 sm:py-16 md:py-20 bg-amber-50">
+        <div class="container mx-auto px-4 sm:px-6">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-10 sm:mb-12 md:mb-16 text-center text-amber-800 scroll-fade">Наша продукция</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-lg transition duration-300 hover:shadow-xl scroll-fade">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Деревянная мебель" class="w-full h-48 sm:h-56 md:h-64 object-cover">
+                        <div class="product-overlay absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center">
+                            <button class="bg-amber-800 hover:bg-amber-700 text-white font-bold py-2 px-4 sm:py-2 sm:px-6 rounded-full transition duration-300 text-xs sm:text-sm">Подробнее</button>
+                        </div>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold mb-2">Мебель на заказ</h3>
+                        <p class="text-gray-700 mb-3 sm:mb-4 text-xs sm:text-sm">Столы, стулья, шкафы и другие предметы мебели по вашим размерам и дизайну.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-amber-800 font-bold text-sm sm:text-base">от 15 000 ₽</span>
+                            <button class="text-amber-800 hover:text-amber-700 font-semibold text-xs sm:text-sm">Заказать <i class="fas fa-arrow-right ml-1 text-xs"></i></button>
+                        </div>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">🏠</div>
-                    <h3>Декоративные элементы</h3>
-                    <p>Создание декоративных элементов для интерьера: панно, статуэтки, рамки для фотографий, подсвечники.</p>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-lg transition duration-300 hover:shadow-xl scroll-fade">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1604754742623-b5a70aafb3b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Деревянная посуда" class="w-full h-48 sm:h-56 md:h-64 object-cover">
+                        <div class="product-overlay absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center">
+                            <button class="bg-amber-800 hover:bg-amber-700 text-white font-bold py-2 px-4 sm:py-2 sm:px-6 rounded-full transition duration-300 text-xs sm:text-sm">Подробнее</button>
+                        </div>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold mb-2">Кухонная утварь</h3>
+                        <p class="text-gray-700 mb-3 sm:mb-4 text-xs sm:text-sm">Разделочные доски, ложки, лопатки и другая экологичная посуда для кухни.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-amber-800 font-bold text-sm sm:text-base">от 500 ₽</span>
+                            <button class="text-amber-800 hover:text-amber-700 font-semibold text-xs sm:text-sm">Заказать <i class="fas fa-arrow-right ml-1 text-xs"></i></button>
+                        </div>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">🍴</div>
-                    <h3>Кухонная утварь</h3>
-                    <p>Изготовление функциональных предметов для кухни: разделочные доски, ложки, подносы, хлебницы.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="portfolio">
-            <h2>Наши работы</h2>
-            <div class="gallery" id="gallery">
-                <!-- Галерея будет заполняться динамически -->
-                <div class="gallery-item">
-                    <img src="/api/placeholder/300/300" alt="Обеденный стол">
-                    <div class="gallery-caption">Обеденный стол из массива дуба</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="/api/placeholder/300/300" alt="Книжная полка">
-                    <div class="gallery-caption">Книжная полка в стиле лофт</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="/api/placeholder/300/300" alt="Разделочная доска">
-                    <div class="gallery-caption">Разделочная доска из ореха</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="/api/placeholder/300/300" alt="Деревянные часы">
-                    <div class="gallery-caption">Настенные часы ручной работы</div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-lg transition duration-300 hover:shadow-xl scroll-fade">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1605773527852-3a9851cf8cc4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Деревянные игрушки" class="w-full h-48 sm:h-56 md:h-64 object-cover">
+                        <div class="product-overlay absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center">
+                            <button class="bg-amber-800 hover:bg-amber-700 text-white font-bold py-2 px-4 sm:py-2 sm:px-6 rounded-full transition duration-300 text-xs sm:text-sm">Подробнее</button>
+                        </div>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold mb-2">Детские игрушки</h3>
+                        <p class="text-gray-700 mb-3 sm:mb-4 text-xs sm:text-sm">Экологичные и безопасные развивающие игрушки для детей всех возрастов.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-amber-800 font-bold text-sm sm:text-base">от 300 ₽</span>
+                            <button class="text-amber-800 hover:text-amber-700 font-semibold text-xs sm:text-sm">Заказать <i class="fas fa-arrow-right ml-1 text-xs"></i></button>
+                        </div>
+                    </div>
                 </div>
             </div>
             
-            <div class="upload-container">
-                <h3>Добавить фотографию работы</h3>
-                <div class="upload-form">
-                    <div class="form-group">
-                        <label for="image-title">Название работы</label>
-                        <input type="text" id="image-title" placeholder="Введите название">
+            <div class="text-center mt-8 sm:mt-10 md:mt-12 scroll-fade">
+                <a href="#" class="inline-block border-2 border-amber-800 text-amber-800 hover:bg-amber-800 hover:text-white font-bold py-2 px-6 sm:py-3 sm:px-8 rounded-full transition duration-300 text-sm sm:text-base">Смотреть все работы</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-12 sm:py-16 md:py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-10 sm:mb-12 md:mb-16 text-center text-amber-800 scroll-fade">Наш процесс</h2>
+            
+            <div class="flex flex-col md:flex-row items-center mb-10 sm:mb-12 md:mb-16">
+                <div class="md:w-1/2 mb-6 sm:mb-8 md:mb-0 md:pr-6 lg:pr-10 scroll-fade process-steps">
+                    <div class="flex items-start mb-4 sm:mb-6">
+                        <div class="bg-amber-100 text-amber-800 rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                            <span class="text-lg sm:text-xl font-bold">1</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold mb-1 sm:mb-2 text-amber-800">Выбор древесины</h3>
+                            <p class="text-gray-700 text-xs sm:text-sm">Мы тщательно отбираем древесину, учитывая её текстуру, плотность и устойчивость к деформации. Используем только хорошо просушенные материалы.</p>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="image-url">URL изображения</label>
-                        <input type="text" id="image-url" placeholder="Введите URL изображения">
+                    
+                    <div class="flex items-start mb-4 sm:mb-6">
+                        <div class="bg-amber-100 text-amber-800 rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                            <span class="text-lg sm:text-xl font-bold">2</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold mb-1 sm:mb-2 text-amber-800">Проектирование</h3>
+                            <p class="text-gray-700 text-xs sm:text-sm">Создаём эскизы и 3D-модели будущего изделия, согласовывая все детали с заказчиком. Учитываем функциональность и эстетику.</p>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="image-description">Описание</label>
-                        <textarea id="image-description" rows="3" placeholder="Введите описание работы"></textarea>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-amber-100 text-amber-800 rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                            <span class="text-lg sm:text-xl font-bold">3</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold mb-1 sm:mb-2 text-amber-800">Изготовление</h3>
+                            <p class="text-gray-700 text-xs sm:text-sm">Вручную обрабатываем каждую деталь, сочетая традиционные столярные техники с современными инструментами для точности.</p>
+                        </div>
                     </div>
-                    <button type="button" id="add-image" class="btn">Добавить</button>
+                </div>
+                
+                <div class="md:w-1/2 scroll-fade process-image">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27a2c4d93bdc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Процесс работы" class="rounded-lg shadow-xl w-full">
                 </div>
             </div>
-        </section>
-
-        <section id="contact">
-            <h2>Связаться с нами</h2>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Контактная информация</h3>
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div>ул. Столярная, 42, г. Москва</div>
+            
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-6 sm:mb-8 md:mb-0 md:order-2 md:pl-6 lg:pl-10 scroll-fade process-steps">
+                    <div class="flex items-start mb-4 sm:mb-6">
+                        <div class="bg-amber-100 text-amber-800 rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                            <span class="text-lg sm:text-xl font-bold">4</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold mb-1 sm:mb-2 text-amber-800">Отделка</h3>
+                            <p class="text-gray-700 text-xs sm:text-sm">Применяем натуральные масла и воски для защиты дерева, подчёркивая его природную красоту. Возможна тонировка в разные оттенки.</p>
+                        </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📞</div>
-                        <div>+7 (123) 456-78-90</div>
+                    
+                    <div class="flex items-start mb-4 sm:mb-6">
+                        <div class="bg-amber-100 text-amber-800 rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                            <span class="text-lg sm:text-xl font-bold">5</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold mb-1 sm:mb-2 text-amber-800">Контроль качества</h3>
+                            <p class="text-gray-700 text-xs sm:text-sm">Каждое изделие проходит тщательную проверку на прочность, функциональность и соответствие заявленным характеристикам.</p>
+                        </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">✉️</div>
-                        <div>info@wood-workshop.ru</div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">🕒</div>
-                        <div>Пн-Пт: 9:00 - 18:00, Сб: 10:00 - 15:00</div>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-amber-100 text-amber-800 rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                            <span class="text-lg sm:text-xl font-bold">6</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold mb-1 sm:mb-2 text-amber-800">Доставка</h3>
+                            <p class="text-gray-700 text-xs sm:text-sm">Аккуратно упаковываем и доставляем ваше изделие. Предоставляем рекомендации по уходу за деревянными предметами.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="contact-form">
-                    <h3>Напишите нам</h3>
-                    <form id="contact-form">
-                        <div class="form-group">
-                            <label for="name">Имя</label>
-                            <input type="text" id="name" placeholder="Введите ваше имя" required>
+                
+                <div class="md:w-1/2 md:order-1 scroll-fade process-image">
+                    <img src="https://images.unsplash.com/photo-1605007493699-af65885f8bb7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Готовая продукция" class="rounded-lg shadow-xl w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-12 sm:py-16 md:py-20 bg-amber-100">
+        <div class="container mx-auto px-4 sm:px-6">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-10 sm:mb-12 md:mb-16 text-center text-amber-800 scroll-fade">Отзывы клиентов</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-6 sm:p-8 rounded-lg shadow-lg scroll-fade">
+                    <div class="flex items-center mb-3 sm:mb-4">
+                        <div class="text-amber-500 mr-2 text-sm sm:text-base">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
                         </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" placeholder="Введите ваш email" required>
+                    </div>
+                    <p class="text-gray-700 mb-4 sm:mb-6 text-xs sm:text-sm">"Заказал обеденный стол из дуба. Качество превосходное! Мастера учли все пожелания по размерам. Прошло уже 2 года - стол как новый, хотя используем его каждый день."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Алексей" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full mr-3 sm:mr-4">
+                        <div>
+                            <h4 class="font-bold text-sm sm:text-base">Алексей</h4>
+                            <p class="text-gray-600 text-xs">Москва</p>
                         </div>
-                        <div class="form-group">
-                            <label for="message">Сообщение</label>
-                            <textarea id="message" rows="5" placeholder="Введите ваше сообщение" required></textarea>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-6 sm:p-8 rounded-lg shadow-lg scroll-fade">
+                    <div class="flex items-center mb-3 sm:mb-4">
+                        <div class="text-amber-500 mr-2 text-sm sm:text-base">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
                         </div>
-                        <button type="submit" class="btn">Отправить</button>
+                    </div>
+                    <p class="text-gray-700 mb-4 sm:mb-6 text-xs sm:text-sm">"Подарили детям деревянный конструктор. Игрушка не только красивая, но и очень прочная. Дети в восторге! Теперь хотим заказать кукольный домик."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Елена" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full mr-3 sm:mr-4">
+                        <div>
+                            <h4 class="font-bold text-sm sm:text-base">Елена</h4>
+                            <p class="text-gray-600 text-xs">Санкт-Петербург</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-6 sm:p-8 rounded-lg shadow-lg scroll-fade">
+                    <div class="flex items-center mb-3 sm:mb-4">
+                        <div class="text-amber-500 mr-2 text-sm sm:text-base">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4 sm:mb-6 text-xs sm:text-sm">"Купила набор разделочных досок в подарок. Упаковка и качество на высоте! Получился очень душевный и экологичный презент. Обязательно вернусь за новыми покупками."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Ольга" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full mr-3 sm:mr-4">
+                        <div>
+                            <h4 class="font-bold text-sm sm:text-base">Ольга</h4>
+                            <p class="text-gray-600 text-xs">Казань</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-12 sm:py-16 md:py-20 bg-white contact-section">
+        <div class="container mx-auto px-4 sm:px-6">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-10 sm:mb-12 md:mb-16 text-center text-amber-800 scroll-fade">Свяжитесь с нами</h2>
+            
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-8 sm:mb-10 md:mb-0 md:pr-6 lg:pr-10 scroll-fade contact-info">
+                    <h3 class="text-xl font-bold mb-4 sm:mb-6 text-amber-800">Наши контакты</h3>
+                    
+                    <div class="mb-4 sm:mb-6">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-amber-800 mt-1 mr-3 sm:mr-4 text-sm sm:text-base"></i>
+                            <div>
+                                <h4 class="font-bold mb-1 text-sm sm:text-base">Адрес</h4>
+                                <p class="text-gray-700 text-xs sm:text-sm">г. Москва, ул. Деревообрабатывающая, 15</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4 sm:mb-6">
+                        <div class="flex items-start">
+                            <i class="fas fa-phone-alt text-amber-800 mt-1 mr-3 sm:mr-4 text-sm sm:text-base"></i>
+                            <div>
+                                <h4 class="font-bold mb-1 text-sm sm:text-base">Телефон</h4>
+                                <p class="text-gray-700 text-xs sm:text-sm">+7 (495) 123-45-67</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4 sm:mb-6">
+                        <div class="flex items-start">
+                            <i class="fas fa-envelope text-amber-800 mt-1 mr-3 sm:mr-4 text-sm sm:text-base"></i>
+                            <div>
+                                <h4 class="font-bold mb-1 text-sm sm:text-base">Email</h4>
+                                <p class="text-gray-700 text-xs sm:text-sm">info@derevouzor.ru</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6 sm:mb-8">
+                        <div class="flex items-start">
+                            <i class="fas fa-clock text-amber-800 mt-1 mr-3 sm:mr-4 text-sm sm:text-base"></i>
+                            <div>
+                                <h4 class="font-bold mb-1 text-sm sm:text-base">Часы работы</h4>
+                                <p class="text-gray-700 text-xs sm:text-sm">Пн-Пт: 9:00 - 18:00<br>Сб: 10:00 - 15:00<br>Вс: выходной</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-3 sm:mb-4 text-amber-800">Мы в соцсетях</h3>
+                    <div class="flex space-x-3 sm:space-x-4">
+                        <a href="#" class="bg-amber-100 hover:bg-amber-200 text-amber-800 w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition duration-300 text-sm sm:text-base">
+                            <i class="fab fa-vk"></i>
+                        </a>
+                        <a href="#" class="bg-amber-100 hover:bg-amber-200 text-amber-800 w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition duration-300 text-sm sm:text-base">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-amber-100 hover:bg-amber-200 text-amber-800 w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition duration-300 text-sm sm:text-base">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="#" class="bg-amber-100 hover:bg-amber-200 text-amber-800 w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition duration-300 text-sm sm:text-base">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 scroll-fade contact-form">
+                    <h3 class="text-xl font-bold mb-4 sm:mb-6 text-amber-800">Форма обратной связи</h3>
+                    
+                    <form id="contact-form" class="space-y-3 sm:space-y-4">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-1 sm:mb-2 text-sm sm:text-base">Ваше имя</label>
+                            <input type="text" id="name" class="w-full px-3 sm:px-4 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent" required>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-gray-700 mb-1 sm:mb-2 text-sm sm:text-base">Email</label>
+                            <input type="email" id="email" class="w-full px-3 sm:px-4 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent" required>
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-gray-700 mb-1 sm:mb-2 text-sm sm:text-base">Телефон</label>
+                            <input type="tel" id="phone" class="w-full px-3 sm:px-4 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-gray-700 mb-1 sm:mb-2 text-sm sm:text-base">Сообщение</label>
+                            <textarea id="message" rows="3" class="w-full px-3 sm:px-4 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="bg-amber-800 hover:bg-amber-700 text-white font-bold py-2 px-4 sm:py-3 sm:px-6 rounded-lg transition duration-300 w-full text-sm sm:text-base">Отправить сообщение</button>
                     </form>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-column">
-                <h3>Деревянная Мастерская</h3>
-                <p>Создаем уникальные изделия из дерева с 2010 года. Качество, надежность, индивидуальный подход.</p>
-            </div>
-            <div class="footer-column">
-                <h3>Навигация</h3>
-                <ul class="footer-links">
-                    <li><a href="#home">Главная</a></li>
-                    <li><a href="#about">О нас</a></li>
-                    <li><a href="#services">Услуги</a></li>
-                    <li><a href="#portfolio">Портфолио</a></li>
-                    <li><a href="#contact">Контакты</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Подписывайтесь на нас</h3>
-                <div class="social-links">
-                    <a href="#" class="social-link">VK</a>
-                    <a href="#" class="social-link">TG</a>
-                    <a href="#" class="social-link">YT</a>
+    <!-- Map Section -->
+    <div class="h-64 sm:h-80 md:h-96 w-full scroll-fade map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.373787896327!2d37.618423315930474!3d55.75179798055208!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a5a738fa419%3A0x7c347d506f52311f!2z0JrRgNCw0YHQvdC-0Y_RgNGB0LosINCc0L7RgdC60LLQsA!5e0!3m2!1sru!2sru!4v1689681281023!5m2!1sru!2sru" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-amber-900 text-white py-8 sm:py-10 md:py-12">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="flex flex-col md:flex-row justify-between footer-content">
+                <div class="mb-6 sm:mb-8 md:mb-0 scroll-fade footer-column">
+                    <div class="flex items-center mb-3 sm:mb-4">
+                        <i class="fas fa-tree text-2xl sm:text-3xl text-amber-200 mr-2"></i>
+                        <span class="text-xl sm:text-2xl font-bold text-amber-200">Древесный Узор</span>
+                    </div>
+                    <p class="max-w-xs text-xs sm:text-sm">Мастерская по изготовлению уникальных деревянных изделий ручной работы.</p>
+                </div>
+                
+                <div class="mb-6 sm:mb-8 md:mb-0 scroll-fade footer-column">
+                    <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-amber-200">Меню</h3>
+                    <ul class="space-y-1 sm:space-y-2">
+                        <li><a href="#home" class="hover:text-amber-300 transition text-xs sm:text-sm">Главная</a></li>
+                        <li><a href="#about" class="hover:text-amber-300 transition text-xs sm:text-sm">О нас</a></li>
+                        <li><a href="#products" class="hover:text-amber-300 transition text-xs sm:text-sm">Продукция</a></li>
+                        <li><a href="#process" class="hover:text-amber-300 transition text-xs sm:text-sm">Процесс</a></li>
+                        <li><a href="#contact" class="hover:text-amber-300 transition text-xs sm:text-sm">Контакты</a></li>
+                    </ul>
+                </div>
+                
+                <div class="mb-6 sm:mb-8 md:mb-0 scroll-fade footer-column">
+                    <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-amber-200">Контакты</h3>
+                    <ul class="space-y-1 sm:space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2 text-amber-300 text-xs sm:text-sm"></i>
+                            <span class="text-xs sm:text-sm">г. Москва, ул. Деревообрабатывающая, 15</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-2 text-amber-300 text-xs sm:text-sm"></i>
+                            <span class="text-xs sm:text-sm">+7 (495) 123-45-67</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-2 text-amber-300 text-xs sm:text-sm"></i>
+                            <span class="text-xs sm:text-sm">info@derevouzor.ru</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="scroll-fade footer-column">
+                    <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-amber-200">Соцсети</h3>
+                    <div class="flex space-x-3 sm:space-x-4">
+                        <a href="#" class="bg-amber-800 hover:bg-amber-700 text-white w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition duration-300 text-sm">
+                            <i class="fab fa-vk"></i>
+                        </a>
+                        <a href="#" class="bg-amber-800 hover:bg-amber-700 text-white w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition duration-300 text-sm">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-amber-800 hover:bg-amber-700 text-white w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition duration-300 text-sm">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="#" class="bg-amber-800 hover:bg-amber-700 text-white w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition duration-300 text-sm">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="mt-4 sm:mt-6">
+                        <p class="text-xs sm:text-sm mb-1 sm:mb-2">Подпишитесь на наши новости:</p>
+                        <div class="flex mt-1 sm:mt-2">
+                            <input type="email" placeholder="Ваш email" class="px-3 sm:px-4 py-2 rounded-l-lg focus:outline-none text-gray-800 w-full text-xs sm:text-sm">
+                            <button class="bg-amber-700 hover:bg-amber-600 px-3 sm:px-4 py-2 rounded-r-lg transition duration-300 text-sm">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2025 Деревянная Мастерская. Все права защищены.</p>
+            
+            <div class="border-t border-amber-800 mt-8 sm:mt-10 pt-6 sm:pt-8 text-center text-xs sm:text-sm scroll-fade">
+                <p>&copy; 2023 Мастерская "Древесный Узор". Все права защищены.</p>
+            </div>
         </div>
     </footer>
 
-    <div id="image-modal" class="modal">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="modal-img">
-    </div>
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 bg-amber-800 text-white w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shadow-lg transition duration-300 opacity-0 invisible hover:bg-amber-700 text-sm">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script>
-        // Мобильное меню
-        const hamburger = document.querySelector('.hamburger');
-        const nav = document.getElementById('main-nav');
-
-        hamburger.addEventListener('click', () => {
-            nav.classList.toggle('active');
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
-
-        // Плавная прокрутка к секциям
+        
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollTop = 0;
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
                 
-                // Закрываем мобильное меню после клика
-                if (nav.classList.contains('active')) {
-                    nav.classList.remove('active');
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+                
+                // Update active nav link
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Scroll to section
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
                 }
             });
         });
-
-        // Модальное окно для изображений
-        const modal = document.getElementById('image-modal');
-        const modalImg = document.getElementById('modal-img');
-        const close = document.getElementsByClassName('close')[0];
-
-        // Функция для открытия модального окна
-        function openModal(imgSrc) {
-            modal.style.display = 'flex';
-            modalImg.src = imgSrc;
-        }
-
-        // Закрытие модального окна при клике на крестик
-        close.addEventListener('click', () => {
-            modal.style.display = 'none';
-        });
-
-        // Закрытие модального окна при клике вне изображения
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.style.display = 'none';
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
             }
         });
-
-        // Инициализация галереи
-        const galleryItems = document.querySelectorAll('.gallery-item');
-        galleryItems.forEach(item => {
-            const img = item.querySelector('img');
-            img.addEventListener('click', () => {
-                openModal(img.src);
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         });
-
-        // Добавление новых фотографий в галерею
-        const addImageBtn = document.getElementById('add-image');
-        const gallery = document.getElementById('gallery');
-
-        addImageBtn.addEventListener('click', () => {
-            const title = document.getElementById('image-title').value;
-            const url = document.getElementById('image-url').value;
-            const description = document.getElementById('image-description').value;
-            
-            if (!title || !url) {
-                alert('Пожалуйста, заполните название и URL изображения');
-                return;
-            }
-            
-            // Создаем элемент галереи
-            const galleryItem = document.createElement('div');
-            galleryItem.className = 'gallery-item';
-            
-            // Создаем изображение
-            const img = document.createElement('img');
-            img.src = url;
-            img.alt = title;
-            
-            // Добавляем обработчик для открытия модального окна
-            img.addEventListener('click', () => {
-                openModal(url);
-            });
-            
-            // Создаем подпись
-            const caption = document.createElement('div');
-            caption.className = 'gallery-caption';
-            caption.textContent = description || title;
-            
-            // Добавляем элементы в галерею
-            galleryItem.appendChild(img);
-            galleryItem.appendChild(caption);
-            gallery.appendChild(galleryItem);
-            
-            // Очищаем форму
-            document.getElementById('image-title').value = '';
-            document.getElementById('image-url').value = '';
-            document.getElementById('image-description').value = '';
-            
-            alert('Фотография успешно добавлена!');
-        });
-
-        // Обработка отправки формы обратной связи
+        
+        // Form submission
         const contactForm = document.getElementById('contact-form');
         
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
+            
+            // Get form values
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
             const message = document.getElementById('message').value;
             
-            // Здесь можно добавить логику отправки формы на сервер
-            // Для демонстрации просто показываем сообщение об успешной отправке
-            alert(`Спасибо, ${name}! Ваше сообщение успешно отправлено. Мы свяжемся с вами в ближайшее время.`);
+            // Here you would typically send the data to a server
+            // For this example, we'll just show an alert
+            alert(`Спасибо, ${name}! Ваше сообщение отправлено. Мы свяжемся с вами в ближайшее время.`);
+            
+            // Reset form
             contactForm.reset();
         });
-
-        // Анимация при прокрутке
-        function isElementInViewport(el) {
-            const rect = el.getBoundingClientRect();
-            return (
-                rect.top >= 0 &&
-                rect.left >= 0 &&
-                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-            );
-        }
-
-        function handleScroll() {
+        
+        // Highlight active nav link on scroll
+        window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            
             sections.forEach(section => {
-                if (isElementInViewport(section)) {
-                    section.style.opacity = '1';
-                    section.style.transform = 'translateY(0)';
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
                 }
             });
-        }
-
-        // Стили для анимации
-        document.querySelectorAll('section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
         });
-
-        // Запускаем анимацию при загрузке и прокрутке
-        window.addEventListener('load', handleScroll);
-        window.addEventListener('scroll', handleScroll);
+        
+        // Scroll fade animation - improved version
+        const scrollFadeElements = document.querySelectorAll('.scroll-fade');
+        
+        const fadeInOnScroll = () => {
+            scrollFadeElements.forEach(element => {
+                if (element.classList.contains('show')) return;
+                
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('show');
+                }
+            });
+        };
+        
+        // Initialize - show elements that are already in viewport
+        window.addEventListener('DOMContentLoaded', () => {
+            fadeInOnScroll();
+        });
+        
+        // Then on scroll
+        window.addEventListener('scroll', fadeInOnScroll);
     </script>
 </body>
 </html>
