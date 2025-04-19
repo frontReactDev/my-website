@@ -1253,22 +1253,6 @@
         // Опционально: добавляем масштабирование колесом мыши
         map.behaviors.enable("scrollZoom");
       }
-
-         // Form submission with FormSubmit.co
-      const contactForm = document.getElementById("contact-form");
-
-      contactForm.addEventListener("submit", function () {
-        const submitButton = this.querySelector('button[type="submit"]');
-        submitButton.innerHTML =
-          '<i class="fas fa-spinner fa-spin"></i> Отправка...';
-        submitButton.disabled = true;
-      });
-
-      // You can add additional validation here if needed
-
-      // Form will be submitted to FormSubmit.co automatically
-      // They will send the email to mail@wizvekov.ru
-      // After submission, user will be redirected to back_page.html
     </script>
   </body>
 </html>
